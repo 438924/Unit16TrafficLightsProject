@@ -10,29 +10,57 @@ namespace Unit16TrafficLightsProject
             InitializeComponent();
         }
 
-        private void DrawRectangle(PaintEventArgs e)
-        {
-            int rectWidth = 300;
-            int rectHeight = 200;
 
-            int rectX = (Size.Width / 2) - rectWidth;
-            int rectY = (Size.Height / 2);
-
-            var gp = new GraphicsPath();
-            var rc = new Rectangle(rectX, rectY, rectWidth, rectHeight);
-            gp.AddRectangle(rc);
-
-            e.Graphics.FillRegion(Brushes.Black, new Region(gp));
-        }
-
-        private void Form1_Paint(object sender, PaintEventArgs e)
-        {
-            DrawRectangle(e);
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void drawTopEllipse1(PaintEventArgs e)
+        {
+            var gp = new System.Drawing.Drawing2D.GraphicsPath();
+            gp.AddEllipse(110, 15, 150, 150);
+            var r = new System.Drawing.Region(gp);
+            Graphics gr = e.Graphics;
+            gr.FillRegion(Brushes.Gray, r);
+        }
+
+        private void drawMiddleEllipse1(PaintEventArgs e)
+        {
+            var gp = new System.Drawing.Drawing2D.GraphicsPath();
+            gp.AddEllipse(110, 15, 150, 150);
+            var r = new System.Drawing.Region(gp);
+            Graphics gr = e.Graphics;
+            gr.FillRegion(Brushes.Gray, r);
+        }
+
+        private void drawBottomEllipse1(PaintEventArgs e)
+        {
+            var gp = new System.Drawing.Drawing2D.GraphicsPath();
+            gp.AddEllipse(110, 15, 150, 150);
+            var r = new System.Drawing.Region(gp);
+            Graphics gr = e.Graphics;
+            gr.FillRegion(Brushes.Gray, r);
+        }
+
+        private void drawRectangle1(PaintEventArgs e)
+        {
+            var gp = new System.Drawing.Drawing2D.GraphicsPath();
+            Rectangle rc = new Rectangle(50, 40, 250, 500);
+            gp.AddRectangle(rc);
+            var r = new System.Drawing.Region(gp);
+            Graphics gr = e.Graphics;
+            gr.FillRegion(Brushes.Black, r);
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            drawRectangle1(e);
+            drawTopEllipse1(e);
+            drawMiddleEllipse1(e);
+            drawBottomEllipse1(e);
+     
         }
     }
 }
